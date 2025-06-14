@@ -57,7 +57,7 @@ p {
 } */
 .app-header {
   background-color: var(--surface-color);
-  padding: 1rem 2rem; /* Am redus puțin padding-ul vertical */
+  padding: 1rem 2rem;
   text-align: center;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 2rem;
@@ -66,13 +66,13 @@ p {
   z-index: 100;
 }
 
-/* NOU: Container pentru logo și titlu */
+/* Container pentru logo și titlu */
 .header-content {
-  display: flex; /* Activează Flexbox */
-  align-items: center; /* Aliniază elementele pe verticală (la centru) */
-  justify-content: center; /* Centrează grupul pe orizontală */
-  gap: 1rem; /* Spațiu între logo și titlu */
-  flex-wrap: wrap; /* Permite trecerea pe rândul următor dacă nu e loc */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 .app-header h1 {
   padding: 1rem;
@@ -83,15 +83,13 @@ p {
 }
 
 .app-logo {
-  height: 40px; /* Setează înălțimea logo-ului. Poți ajusta această valoare. */
-  width: auto; /* Lățimea se va ajusta automat pentru a păstra proporțiile */
+  height: 40px;
+  width: auto;
 }
 
-/* MODIFICAT: Ajustează stilul pentru h1 pentru a se alinia corect */
 .app-header h1 {
-  /* Facem selectorul mai specific */
-  margin: 0; /* Elimină marginile default care pot strica alinierea flex */
-  font-size: 1.8rem; /* Opcional: ajustează mărimea fontului pentru a se potrivi cu logo-ul */
+  margin: 0;
+  font-size: 1.8rem;
 }
 
 /* Stilul pentru fiecare secțiune de calculator */
@@ -152,18 +150,18 @@ p {
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  overflow: hidden; /* Important pentru animație */
+  overflow: hidden;
   transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out,
     padding 0.5s ease-in-out;
 }
 
 /* Asta este clasa care ascunde secțiunea */
 .calculator-section.is-collapsed {
-  max-height: 0; /* Animația principală */
+  max-height: 0;
   opacity: 0;
   padding-top: 0;
   padding-bottom: 0;
-  border-width: 0; /* Ascunde și bordura */
+  border-width: 0;
 }
 
 label {
@@ -175,7 +173,7 @@ label {
 input[type="number"],
 input[type="date"],
 .calculator-section button {
-  width: 100%; /* Acum se aplică doar butoanelor din secțiuni */
+  width: 100%;
   padding: 12px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
@@ -221,14 +219,14 @@ button {
 }
 
 * .rezultat.success {
-  color: #28a745; /* Verde */
+  color: #28a745;
   opacity: 1;
   transform: translateY(0);
 }
 
 /*  Starea de EROARE (roșu și vizibil) */
 .rezultat.error {
-  color: #dc3545; /* Roșu */
+  color: #dc3545;
   opacity: 1;
   transform: translateY(0);
 }
@@ -243,31 +241,31 @@ button {
   background-color: var(--surface-color);
   color: var(--secondary-color);
   padding: 1.5rem 2rem;
-  margin-top: 3rem; /* Spațiu deasupra footerului */
+  margin-top: 3rem;
   border-top: 1px solid var(--border-color);
   font-size: 0.9rem;
 }
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between; /* Împinge elementele la capete */
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Permite trecerea pe rândul următor pe ecrane mici */
-  gap: 1.5rem; /* Am mărit puțin spațiul pentru a arăta mai bine */
-  max-width: 1400px; /* Aliniază cu lățimea containerului principal */
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 /* Suprascrie marginile implicite ale paragrafului din footer */
 .footer-bottom p {
   margin: 0;
-  text-align: left; /* Asigurăm alinierea la stânga pe ecrane mari */
+  text-align: left;
 }
 
 .creator-badge {
-  display: inline-flex; /* Aliniază iconița și textul */
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem; /* Spațiu între iconiță și text */
+  gap: 0.75rem;
   color: var(--secondary-color);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -279,12 +277,12 @@ button {
 
 /* Stil pentru iconița Font Awesome */
 .creator-badge .fa-github {
-  font-size: 28px; /* Redimensionăm iconița la o mărime mai potrivită */
+  font-size: 28px;
   transition: transform 0.3s ease;
 }
 
 .creator-badge:hover .fa-github {
-  transform: scale(1.1); /* Un efect de mărire subtilă la hover */
+  transform: scale(1.1);
 }
 /* --- MEDIA QUERIES PENTRU RESPONSIVE DESIGN --- */
 
@@ -292,12 +290,12 @@ button {
 
 @media (max-width: 550px) {
   .header-content {
-    flex-direction: column; /* Așează logo-ul deasupra titlului */
-    gap: 0.5rem; /* Micșorează spațiul vertical */
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .app-header h1 {
-    font-size: 1.5rem; /* Micșorează titlul pe mobil */
+    font-size: 1.5rem;
   }
 }
 @media (min-width: 600px) {
@@ -317,14 +315,14 @@ button {
     flex-grow: 1;
   }
   .footer-bottom {
-    flex-direction: column; /* Așează elementele unul sub altul */
+    flex-direction: column;
     justify-content: center;
     text-align: center;
     gap: 1rem;
   }
 
   .footer-bottom p {
-    text-align: center; /* Centrare text pe mobil */
+    text-align: center;
   }
 }
 
