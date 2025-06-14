@@ -1,0 +1,261 @@
+/* Resetare de bază și Box Sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Comportament mai intuitiv pentru padding și border */
+}
+
+/* Variabile CSS pentru culori și alte valori - ușor de modificat ulterior */
+:root {
+  --primary-color: #007bff; /* Albastru principal */
+  --secondary-color: #6c757d; /* Gri secundar */
+  --background-color: #f8f9fa; /* Fundal foarte deschis */
+  --surface-color: #ffffff; /* Culoare pentru carduri/secțiuni */
+  --text-color: #212529; /* Culoare text principal */
+  --border-color: #dee2e6; /* Culoare pentru borduri */
+  --border-radius: 8px; /* Rotunjimea colțurilor */
+}
+
+body {
+  background-color: #f4f4f4;
+  font-family: "Orbitron", sans-serif, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial;
+  text-align: center;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+h1,
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+  color: var(--secondary-color);
+}
+
+/* Containerul principal */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+/* .app-header {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+} */
+
+.app-header h1 {
+  padding: 1rem;
+  background-color: var(--surface-color);
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Stilul pentru fiecare secțiune de calculator */
+.calculator-section {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Stil pentru grupurile de formular (label + input) */
+.form-grup {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Stiluri pentru butoanele de Toggle --- */
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.toggle-btn {
+  background-color: var(--surface-color);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  font-family: "Orbitron", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Stil pentru butonul activ (secțiunea deschisă) */
+.toggle-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* --- Stiluri pentru efectul de Collapse/Expand --- */
+
+/* Modifică regula .calculator-section pentru a include tranziția */
+.calculator-section {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Important pentru animație */
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out,
+    padding 0.5s ease-in-out;
+}
+
+/* Asta este clasa care ascunde secțiunea */
+.calculator-section.is-collapsed {
+  max-height: 0; /* Animația principală */
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-width: 0; /* Ascunde și bordura */
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* Stil pentru toate input-urile și butonul */
+input[type="number"],
+input[type="date"],
+.calculator-section button {
+  width: 100%; /* Acum se aplică doar butoanelor din secțiuni */
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+/* Mici ajustări la focus (când dai click pe un input) */
+input[type="number"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Stil pentru buton */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.calculator-section button:hover {
+  background-color: #0056b3;
+}
+
+/* Stil pentru zona de afișare a rezultatului */
+.rezultat {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: var(--background-color);
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-height: 50px;
+
+  /* Starea inițială (invizibil) și animația */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+* .rezultat.success {
+  color: #28a745; /* Verde */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*  Starea de EROARE (roșu și vizibil) */
+.rezultat.error {
+  color: #dc3545; /* Roșu */
+  opacity: 1;
+  transform: translateY(0);
+}
+.rezultat .highlight {
+  color: var(--primary-color);
+  font-weight: 900;
+  padding: 0 4px;
+}
+/* --- MEDIA QUERIES PENTRU RESPONSIVE DESIGN --- */
+
+/* Pentru ecrane mai mari decât un telefon (small, min-width: 600px) */
+/* Pe tablete în mod portret și telefoane mari, vom aranja formularele mai frumos */
+@media (min-width: 600px) {
+  .form-grup {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  label {
+    flex-basis: 200px;
+    flex-shrink: 0;
+    text-align: right;
+    margin-bottom: 0;
+  }
+  input[type="number"],
+  input[type="date"] {
+    flex-grow: 1;
+  }
+}
+
+/* Pentru ecrane medii spre mari (large, min-width: 992px) */
+/* Acum avem suficient spațiu pentru a pune cele două calculatoare unul lângă altul */
+@media (min-width: 992px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .calculator-section {
+    flex-basis: 50%;
+  }
+}
+
+/* Modificare pentru 1200px */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+  body {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  body {
+    font-size: 18px;
+  }
+}

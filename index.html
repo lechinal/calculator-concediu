@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Zile Concediu</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Calculator Zile de Concediu</h1>
+    </header>
+
+    <div class="toggle-container">
+      <button id="toggle-anual-btn" class="toggle-btn">Calcul Anual</button>
+      <button id="toggle-proportional-btn" class="toggle-btn">
+        Calcul Proporțional
+      </button>
+    </div>
+
+    <main class="container">
+      <!-- Calculator 1: Zile rămase pe anul curent -->
+      <section id="anual-calculator" class="calculator-section is-collapsed">
+        <h2>Calcul Anual</h2>
+        <p>
+          Calculează câte zile de concediu ți-au mai rămas din totalul pe anul
+          curent.
+        </p>
+
+        <form id="form-anual">
+          <div class="form-grup">
+            <label for="total-zile-anual">Total zile de concediu pe an:</label>
+            <input type="number" id="total-zile-anual" value="21" min="20" />
+          </div>
+
+          <div class="form-grup">
+            <label for="zile-luate-anual">Zile de concediu efectuate:</label>
+            <input type="number" id="zile-luate-anual" value="0" min="0" />
+          </div>
+
+          <button type="button" id="calculeaza-anual">Calculează</button>
+        </form>
+
+        <div id="rezultat-anual" class="rezultat">
+          <!-- Aici va apărea rezultatul calculului -->
+        </div>
+      </section>
+
+      <!-- Calculator 2: Zile proporționale cu perioada lucrată -->
+      <section
+        id="proportional-calculator"
+        class="calculator-section is-collapsed"
+      >
+        <h2>Calcul Proporțional (Angajare/Plecare în același an)</h2>
+        <p>
+          Calculează zilele de concediu cuvenite pentru o perioadă lucrată în
+          anul curent.
+        </p>
+
+        <form id="form-proportional">
+          <div class="form-grup">
+            <label for="total-zile-proportional"
+              >Total zile de concediu pe an (conform contract):</label
+            >
+            <input
+              type="number"
+              id="total-zile-proportional"
+              value="21"
+              min="20"
+            />
+          </div>
+
+          <div class="form-grup">
+            <label for="data-angajare">Data angajării:</label>
+            <input type="date" id="data-angajare" />
+          </div>
+
+          <div class="form-grup">
+            <label for="data-plecare">Data încetării contractului:</label>
+            <input type="date" id="data-plecare" />
+          </div>
+
+          <button type="button" id="calculeaza-proportional">Calculează</button>
+        </form>
+
+        <div id="rezultat-proportional" class="rezultat">
+          <!-- Aici va apărea rezultatul calculului -->
+        </div>
+      </section>
+    </main>
+    <script src="script.js" defer></script>
+  </body>
+</html>
