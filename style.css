@@ -55,13 +55,43 @@ p {
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 } */
+.app-header {
+  background-color: var(--surface-color);
+  padding: 1rem 2rem; /* Am redus puțin padding-ul vertical */
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
+/* NOU: Container pentru logo și titlu */
+.header-content {
+  display: flex; /* Activează Flexbox */
+  align-items: center; /* Aliniază elementele pe verticală (la centru) */
+  justify-content: center; /* Centrează grupul pe orizontală */
+  gap: 1rem; /* Spațiu între logo și titlu */
+  flex-wrap: wrap; /* Permite trecerea pe rândul următor dacă nu e loc */
+}
 .app-header h1 {
   padding: 1rem;
   background-color: var(--surface-color);
   color: var(--primary-color);
   font-size: 2rem;
   font-weight: bold;
+}
+
+.app-logo {
+  height: 40px; /* Setează înălțimea logo-ului. Poți ajusta această valoare. */
+  width: auto; /* Lățimea se va ajusta automat pentru a păstra proporțiile */
+}
+
+/* MODIFICAT: Ajustează stilul pentru h1 pentru a se alinia corect */
+.app-header h1 {
+  /* Facem selectorul mai specific */
+  margin: 0; /* Elimină marginile default care pot strica alinierea flex */
+  font-size: 1.8rem; /* Opcional: ajustează mărimea fontului pentru a se potrivi cu logo-ul */
 }
 
 /* Stilul pentru fiecare secțiune de calculator */
@@ -259,7 +289,17 @@ button {
 /* --- MEDIA QUERIES PENTRU RESPONSIVE DESIGN --- */
 
 /* Pentru ecrane mai mari decât un telefon (small, min-width: 600px) */
-/* Pe tablete în mod portret și telefoane mari, vom aranja formularele mai frumos */
+
+@media (max-width: 550px) {
+  .header-content {
+    flex-direction: column; /* Așează logo-ul deasupra titlului */
+    gap: 0.5rem; /* Micșorează spațiul vertical */
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem; /* Micșorează titlul pe mobil */
+  }
+}
 @media (min-width: 600px) {
   .form-grup {
     flex-direction: row;
