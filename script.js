@@ -162,4 +162,8 @@ document.addEventListener("DOMContentLoaded", () => {
       rezultatProportionalDiv.classList.add("success");
     }, 10);
   });
+  const yearSpan = document.getElementById("current-year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 });
