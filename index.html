@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Zile Concediu</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-content">
+        <svg
+          class="app-logo"
+          data-logo="logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 97 41"
+        >
+          <g id="logogram" transform="translate(0, 0) rotate(0)">
+            <path
+              d="M68.75 0.809967H96.25L72.5 40.81H45L68.75 0.809967Z"
+              fill="var(--primary-color);"
+            />
+            <path
+              d="M43.75 0.809967H63.75L40 40.81H20L43.75 0.809967Z"
+              fill="var(--secondary-color)"
+            />
+            <path
+              d="M23.75 0.809967H38.75L15 40.81H0L23.75 0.809967Z"
+              fill="var(--border-color)"
+            />
+          </g>
+          <g id="logotype" transform="translate(97, 20.5)"></g>
+        </svg>
+        <h1>Calculator Zile de Concediu</h1>
+      </div>
+    </header>
+
+    <div class="toggle-container">
+      <button id="toggle-anual-btn" class="toggle-btn">Calcul Anual</button>
+      <button id="toggle-proportional-btn" class="toggle-btn">
+        Calcul Proporțional
+      </button>
+    </div>
+
+    <main class="container">
+      <!-- Calculator 1: Zile rămase pe anul curent -->
+      <section id="anual-calculator" class="calculator-section is-collapsed">
+        <h2>Calcul Anual</h2>
+        <p>
+          Calculează câte zile de concediu ți-au mai rămas din totalul pe anul
+          curent.
+        </p>
+
+        <form id="form-anual">
+          <div class="form-grup">
+            <label for="total-zile-anual">Total zile de concediu pe an:</label>
+            <input type="number" id="total-zile-anual" value="21" min="20" />
+          </div>
+
+          <div class="form-grup">
+            <label for="zile-luate-anual">Zile de concediu efectuate:</label>
+            <input type="number" id="zile-luate-anual" value="0" min="0" />
+          </div>
+
+          <button type="button" id="calculeaza-anual">Calculează</button>
+        </form>
+
+        <div id="rezultat-anual" class="rezultat">
+          <!-- Aici va apărea rezultatul calculului -->
+        </div>
+      </section>
+
+      <!-- Calculator 2: Zile proporționale cu perioada lucrată -->
+      <section
+        id="proportional-calculator"
+        class="calculator-section is-collapsed"
+      >
+        <h2>Calcul Proporțional (Angajare/Plecare în același an)</h2>
+        <p>
+          Calculează zilele de concediu cuvenite pentru o perioadă lucrată în
+          anul curent.
+        </p>
+
+        <form id="form-proportional">
+          <div class="form-grup">
+            <label for="total-zile-proportional"
+              >Total zile de concediu pe an (conform contract):</label
+            >
+            <input
+              type="number"
+              id="total-zile-proportional"
+              value="21"
+              min="20"
+            />
+          </div>
+
+          <div class="form-grup">
+            <label for="data-angajare">Data angajării:</label>
+            <input type="date" id="data-angajare" />
+          </div>
+
+          <div class="form-grup">
+            <label for="data-plecare">Data încetării contractului:</label>
+            <input type="date" id="data-plecare" />
+          </div>
+
+          <button type="button" id="calculeaza-proportional">Calculează</button>
+        </form>
+
+        <div id="rezultat-proportional" class="rezultat">
+          <!-- Aici va apărea rezultatul calculului -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <div class="footer-bottom">
+        <p>
+          © <span id="current-year"></span> Calculator Zile de Concediu. Toate
+          drepturile rezervate.
+        </p>
+        <div class="creator-badge-container">
+          <a
+            href="https://github.com/lechinal"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="creator-badge"
+          >
+            <i class="fa fa-github"></i>
+            <span>Creat de lechinal</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
